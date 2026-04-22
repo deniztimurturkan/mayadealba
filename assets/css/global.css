@@ -43,43 +43,46 @@ main {
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   HEADER & NAV
+   HEADER & NAV  — centered stacked layout
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  height: var(--header-height);
-  background: rgba(9, 9, 9, 0.88);
+  background: rgba(9, 9, 9, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--color-border);
 
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 var(--gutter);
-  gap: var(--space-lg);
+  padding: var(--space-lg) var(--gutter) var(--space-md);
+  gap: var(--space-md);
 }
 
-/* Logo */
+/* Logo — centered, large */
 .logo-link {
-  flex-shrink: 0;
   display: flex;
   align-items: center;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
 }
 
 .site-logo {
-  height: 48px;
+  height: 90px;
   width: auto;
   object-fit: contain;
 }
 
-/* Nav links */
+/* Nav links — centered row below logo */
 .site-nav {
   display: flex;
   align-items: center;
-  gap: var(--space-xl);
+  gap: var(--space-2xl);
 }
 
 .site-nav a {
@@ -118,7 +121,7 @@ main {
   color: var(--color-text);
 }
 
-/* Hamburger toggle — hidden on desktop */
+/* Hamburger — hidden on desktop */
 .nav-toggle {
   display: none;
   font-size: 1.375rem;
@@ -136,12 +139,16 @@ main {
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 @media (max-width: 767px) {
   .site-header {
+    flex-direction: row;
     flex-wrap: wrap;
-    height: auto;
     padding: var(--space-md) var(--gutter);
     justify-content: space-between;
     align-items: center;
     gap: 0;
+  }
+
+  .site-logo {
+    height: 52px;
   }
 
   .nav-toggle {
@@ -149,7 +156,6 @@ main {
   }
 
   .site-nav {
-    /* Hidden by default — full-width dropdown */
     width: 100%;
     flex-direction: column;
     align-items: flex-start;

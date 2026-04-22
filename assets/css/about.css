@@ -1,1 +1,122 @@
-/* About & Contact page styles */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ABOUT SECTION  (dark background)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.about-section {
+  padding: var(--space-3xl) 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.about-heading {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--color-text);
+  line-height: 1.05;
+}
+
+.about-bio {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.about-bio p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  max-width: 50ch;
+}
+
+.about-photo img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 12px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CONTACT SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.contact-section {
+  background: var(--color-surface);
+  padding: var(--space-3xl) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.contact-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.contact-heading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-text);
+}
+
+.contact-body {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  max-width: 45ch;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: color var(--transition-fast);
+  width: fit-content;
+}
+
+.contact-link:hover { color: var(--color-accent); }
+
+.contact-link-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.contact-link:hover .contact-link-icon {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .about-photo { order: -1; }
+}

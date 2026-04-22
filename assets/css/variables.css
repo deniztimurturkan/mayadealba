@@ -24,7 +24,7 @@
 
   /* ── Layout ── */
   --max-width:     1200px;
-  --header-height: 72px;
+  --header-height: 180px;
   --gutter:        clamp(1rem, 4vw, 2rem);
 
   /* ── Transitions ── */
