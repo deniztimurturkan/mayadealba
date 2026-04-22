@@ -1,1 +1,173 @@
-/* Home page styles — hero carousel and bio section */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   HERO CAROUSEL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.hero {
+  background: var(--color-surface);
+  position: relative;
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  height: clamp(280px, 52vw, 620px);
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  /* transition set by JS after first paint to avoid initial flash */
+}
+
+.carousel-track.animated {
+  transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel-slide {
+  flex: 0 0 auto;
+  height: 100%;
+  overflow: hidden;
+  /* width set by JS based on viewport */
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Fallback when image isn't provided yet */
+.carousel-slide--placeholder {
+  background: linear-gradient(135deg, var(--color-surface) 0%, #1f1f1f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Arrow buttons */
+.carousel-btn {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(9, 9, 9, 0.55);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: 2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.carousel-btn:hover {
+  background: rgba(9, 9, 9, 0.85);
+  border-color: var(--color-accent);
+}
+
+.carousel-btn--prev { left: 1.25rem; }
+.carousel-btn--next { right: 1.25rem; }
+
+/* Dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: var(--space-md) 0 var(--space-sm);
+}
+
+.carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.carousel-dot.active {
+  background: var(--color-accent);
+  transform: scale(1.4);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   BIO SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.bio {
+  padding: var(--space-3xl) 0 calc(var(--space-3xl) + var(--space-xl));
+}
+
+.bio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.bio-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.bio-heading {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 6rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.bio-description {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  max-width: 44ch;
+}
+
+.bio-photo {
+  position: relative;
+}
+
+.bio-photo img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  /* Warm tinted shadow to match the dark theme */
+  box-shadow: 0 12px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Photo placeholder while image loads or is missing */
+.bio-photo img[src="assets/images/maya-portrait.jpg"]:not([complete]) {
+  background: var(--color-surface);
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .bio-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  /* Photo below text on mobile (per spec) */
+  .bio-photo { order: 1; }
+}

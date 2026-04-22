@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surface Design — Maya de Alba</title>
+  <meta name="description" content="Surface design and pattern work by Maya Angela de Alba.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/surface.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo-link">
+      <img src="assets/images/logo.png" alt="Maya de Alba Illustration" class="site-logo">
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="illustration.html">Illustration</a>
+      <a href="surface-design.html">Surface Design</a>
+      <a href="motion.html">Motion</a>
+      <a href="about.html">About &amp; Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  </header>
+
+  <main>
+    <section class="surface-header container">
+      <p class="section-label">Portfolio</p>
+      <h1 class="surface-title">Surface Design</h1>
+      <p class="surface-subtitle">Pattern projects — hover to reveal, click to explore.</p>
+    </section>
+
+    <section class="surface-grid container" id="surfaceGrid" aria-label="Surface design projects">
+      <!-- Cards injected by surface.js -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Maya Angela de Alba</p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="mailto:maya@example.com">Email</a>
+      <span aria-hidden="true">|</span>
+      <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </nav>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/surface.js"></script>
+</body>
+</html>
