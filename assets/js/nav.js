@@ -5,12 +5,36 @@
 function setActiveNav() {
   const filename = window.location.pathname.split('/').pop() || 'index.html';
 
+  // surface-detail.html is a sub-page of surface-design.html
+  const activeFile = filename === 'surface-detail.html' ? 'surface-design.html' : filename;
+
   document.querySelectorAll('.site-nav a').forEach(link => {
     const href = link.getAttribute('href');
-    if (href === filename || (filename === '' && href === 'index.html')) {
+    if (href === activeFile || (activeFile === '' && href === 'index.html')) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
     }
+  });
+}
+
+function handleLogoFallback() {
+  const logo = document.querySelector('.site-logo');
+  if (!logo) return;
+  logo.addEventListener('error', () => {
+    logo.style.display = 'none';
+  });
+}
+
+function injectFooterLinks() {
+  if (typeof siteData === 'undefined') return;
+
+  document.querySelectorAll('a[href^="mailto:"]').forEach(el => {
+    if (siteData.email) el.href = 'mailto:' + siteData.email;
+  });
+
+  // Only update Instagram links that are the placeholder
+  document.querySelectorAll('a[href="https://instagram.com/"]').forEach(el => {
+    if (siteData.instagram) el.href = siteData.instagram;
   });
 }
 
@@ -59,4 +83,6 @@ function initMobileNav() {
 document.addEventListener('DOMContentLoaded', () => {
   setActiveNav();
   initMobileNav();
+  injectFooterLinks();
+  handleLogoFallback();
 });
