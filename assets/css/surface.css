@@ -1,1 +1,142 @@
-/* Surface Design grid and flip card styles */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   PAGE HEADER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.surface-header {
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-xl);
+}
+
+.surface-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.surface-subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  max-width: none;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CARD GRID
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.surface-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  padding-bottom: var(--space-3xl);
+}
+
+/* ── Flip Card Mechanics ── */
+.card-wrapper {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-lg);
+  transform-style: preserve-3d;
+  transition: transform var(--transition-slow) ease;
+}
+
+.card-wrapper:hover .card,
+.card-wrapper:focus-within .card {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+/* Front — artwork image */
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-front--placeholder {
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Back — white with title */
+.card-back {
+  background: var(--color-bg-light);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  text-align: center;
+  gap: var(--space-md);
+}
+
+.card-back-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  color: #111;
+  line-height: 1.2;
+}
+
+.card-back-tagline {
+  font-size: 0.875rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.card-back-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-top: var(--space-sm);
+}
+
+.card-back-cta::after {
+  content: '→';
+}
+
+/* Empty state */
+.surface-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-3xl) 0;
+  color: var(--color-text-muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .surface-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 639px) {
+  .surface-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+
+  /* Disable hover flip on touch; show back on tap instead */
+  .card-wrapper:hover .card { transform: none; }
+  .card-wrapper.tapped .card { transform: rotateY(180deg); }
+}

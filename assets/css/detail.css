@@ -1,1 +1,140 @@
-/* Surface Design detail page styles */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   DETAIL PAGE — light background
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+body {
+  background: var(--color-bg-light);
+  color: #111;
+}
+
+.site-header {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+.site-nav a { color: #555; }
+.site-nav a:hover,
+.site-nav a.active { color: #111; }
+
+.nav-toggle { color: #111; }
+
+/* ── Project Hero ── */
+.detail-hero {
+  background: var(--color-bg-light);
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.detail-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: #111;
+  margin-bottom: var(--space-lg);
+}
+
+.detail-description {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #333;
+  max-width: 60ch;
+}
+
+/* ── Main Image Gallery ── */
+.detail-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+}
+
+/* Scroll-reveal state — images start hidden */
+.detail-gallery img,
+.process-images img,
+.mockup-images img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-md);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.detail-gallery img.revealed,
+.process-images img.revealed,
+.mockup-images img.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Process Section ── */
+.detail-process {
+  background: #f5f4f0;
+  padding: var(--space-3xl) 0;
+}
+
+.detail-section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #111;
+  margin-bottom: var(--space-2xl);
+}
+
+.process-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.process-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #444;
+  max-width: 50ch;
+}
+
+.process-images {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* ── Mockup Section ── */
+.detail-mockups {
+  padding: var(--space-3xl) 0;
+}
+
+.mockup-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+/* ── Back Link ── */
+.detail-back {
+  padding: var(--space-2xl) 0 var(--space-3xl);
+}
+
+.back-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  transition: color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.back-link:hover { color: #246f56; }
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .detail-gallery   { grid-template-columns: 1fr; }
+  .process-layout   { grid-template-columns: 1fr; }
+}
