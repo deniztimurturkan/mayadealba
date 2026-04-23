@@ -54,26 +54,45 @@ main {
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--color-border);
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: var(--space-lg) var(--gutter) var(--space-md);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  justify-items: center;
+  padding: var(--space-xl) var(--gutter) var(--space-md);
   gap: var(--space-md);
+
+  transition: padding var(--transition-base), gap var(--transition-base),
+              grid-template-rows 0.35s ease, box-shadow var(--transition-base);
 }
 
-/* Logo — centered, large */
+/* ── Compact state — triggered by JS on scroll ── */
+.header-scrolled {
+  grid-template-rows: 0fr auto;
+  padding: var(--space-sm) var(--gutter);
+  gap: 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Logo — centered, large; overflow:hidden enables grid 0fr collapse */
 .logo-link {
   display: flex;
   align-items: center;
+  overflow: hidden;
+  min-height: 0;
   font-family: var(--font-display);
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--color-text);
   letter-spacing: 0.02em;
+  transition: opacity var(--transition-base);
+}
+
+.header-scrolled .logo-link {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .site-logo {
-  height: 90px;
+  height: 130px;
   width: auto;
   object-fit: contain;
 }

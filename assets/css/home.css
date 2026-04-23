@@ -4,6 +4,7 @@
 .hero {
   background: var(--color-surface);
   position: relative;
+  padding-top: var(--space-xl);
 }
 
 .carousel {
@@ -15,7 +16,7 @@
 .carousel-viewport {
   overflow: hidden;
   width: 100%;
-  height: clamp(280px, 52vw, 620px);
+  height: clamp(340px, 58vh, 680px);
 }
 
 .carousel-track {
@@ -33,6 +34,11 @@
   height: 100%;
   overflow: hidden;
   /* width set by JS based on viewport */
+  border-right: 3px solid var(--color-bg);
+}
+
+.carousel-slide:last-child {
+  border-right: none;
 }
 
 .carousel-slide img {
