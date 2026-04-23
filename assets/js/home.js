@@ -63,25 +63,31 @@
   });
 
   function getMetrics() {
-    const vw         = viewport.offsetWidth;
-    const isMobile   = window.innerWidth < 768;
-    const slideWidth = isMobile ? vw : vw * 0.22;
-    const peek       = isMobile ? 0 : (vw - slideWidth) / 2;
-    return { slideWidth, peek };
+    const vw       = viewport.offsetWidth;
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      return { circleSize: vw, slideWidth: vw, peek: 0, gap: 0 };
+    }
+
+    const gap        = 32;
+    const circleSize = viewport.offsetHeight;
+    const slideWidth = circleSize + gap;
+    const peek       = (vw - circleSize) / 2;
+    return { circleSize, slideWidth, peek, gap };
   }
 
   function goTo(index) {
     currentIndex = Math.max(0, Math.min(index, total - 1));
-    const { slideWidth, peek } = getMetrics();
+    const { circleSize, slideWidth, peek, gap } = getMetrics();
 
-    /* Size every slide */
     document.querySelectorAll('.carousel-slide').forEach(s => {
-      s.style.width = slideWidth + 'px';
+      s.style.width       = circleSize + 'px';
+      s.style.marginRight = gap + 'px';
     });
 
     track.style.transform = 'translateX(' + (-(currentIndex * slideWidth) + peek) + 'px)';
 
-    /* Update dots */
     document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
       dot.classList.toggle('active', i === currentIndex);
     });

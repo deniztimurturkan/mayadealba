@@ -67,7 +67,7 @@
       lightbox.classList.remove('closing');
       document.body.style.overflow = '';
       previousFocus && previousFocus.focus();
-    }, 220);
+    }, 260);
   }
 
   function showImage(index) {
