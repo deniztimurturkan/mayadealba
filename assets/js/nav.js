@@ -80,9 +80,24 @@ function initMobileNav() {
   });
 }
 
+function initScrollHeader() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  const THRESHOLD = 60;
+
+  function update() {
+    header.classList.toggle('header-scrolled', window.scrollY > THRESHOLD);
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   setActiveNav();
   initMobileNav();
   injectFooterLinks();
   handleLogoFallback();
+  initScrollHeader();
 });
