@@ -309,7 +309,7 @@ const project = surfaceProjects.find(p => p.id === projectId);
 **Structure:**
 ```html
 <footer class="site-footer">
-  <p>© 2025 Maya Angela de Alba</p>
+  <p>© 2026 Maya Angela de Alba</p>
   <nav class="footer-nav">
     <a href="mailto:maya@example.com">EMAIL</a>
     <span>|</span>
