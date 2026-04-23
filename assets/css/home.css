@@ -16,12 +16,13 @@
 .carousel-viewport {
   overflow: hidden;
   width: 100%;
-  height: clamp(340px, 58vh, 680px);
+  height: clamp(300px, 46vh, 500px);
 }
 
 .carousel-track {
   display: flex;
   height: 100%;
+  align-items: center;
   /* transition set by JS after first paint to avoid initial flash */
 }
 
@@ -33,12 +34,8 @@
   flex: 0 0 auto;
   height: 100%;
   overflow: hidden;
-  /* width set by JS based on viewport */
-  border-right: 3px solid var(--color-bg);
-}
-
-.carousel-slide:last-child {
-  border-right: none;
+  border-radius: 50%;
+  /* width + margin-right set by JS */
 }
 
 .carousel-slide img {
@@ -46,6 +43,13 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* Keep mobile slides rectangular — circles would be ellipses at full-width */
+@media (max-width: 767px) {
+  .carousel-slide {
+    border-radius: var(--radius-md);
+  }
 }
 
 /* Fallback when image isn't provided yet */
