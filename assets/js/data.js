@@ -5,8 +5,8 @@
 
 const siteData = {
   owner:     'Maya Angela de Alba',
-  email:     'maya@example.com',        // REPLACE with real email
-  instagram: 'https://instagram.com/',  // REPLACE with real URL
+  email:     'mayadeangela@gmail.com',        // REPLACE with real email
+  instagram: 'https://www.instagram.com/mayadealbaillustrations/',  // REPLACE with real URL
 
   bio: {
     short: 'My name is Maya Angela de Alba and I am an illustrator currently pursuing a BFA at the Savannah College of Art and Design.',

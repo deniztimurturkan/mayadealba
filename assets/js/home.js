@@ -65,7 +65,7 @@
   function getMetrics() {
     const vw         = viewport.offsetWidth;
     const isMobile   = window.innerWidth < 768;
-    const slideWidth = isMobile ? vw : vw * 0.70;
+    const slideWidth = isMobile ? vw : vw * 0.22;
     const peek       = isMobile ? 0 : (vw - slideWidth) / 2;
     return { slideWidth, peek };
   }
