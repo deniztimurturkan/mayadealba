@@ -17,11 +17,20 @@ const siteData = {
     { src: 'assets/images/hero/hero1.jpg', alt: 'Hero artwork 1' },
     { src: 'assets/images/hero/hero2.jpg', alt: 'Hero artwork 2' },
     { src: 'assets/images/hero/hero3.jpg', alt: 'Hero artwork 3' },
+    { src: 'assets/images/hero/hero4.jpg', alt: 'Hero artwork 4' },
+    { src: 'assets/images/hero/hero5.jpg', alt: 'Hero artwork 5' },
+    { src: 'assets/images/hero/hero6.jpg', alt: 'Hero artwork 6' },
+    { src: 'assets/images/hero/hero7.jpg', alt: 'Hero artwork 7' },
   ],
 
   illustrations: [
-    // Add illustration objects here:
-    // { id: 'macabre', src: 'assets/images/macabre.jpg', alt: 'Macabre composition with skeleton and botanical elements' },
+    { id: 'hero1', src: 'assets/images/hero/hero1.jpg', alt: 'Illustration 1' },
+    { id: 'hero2', src: 'assets/images/hero/hero2.jpg', alt: 'Illustration 2' },
+    { id: 'hero3', src: 'assets/images/hero/hero3.jpg', alt: 'Illustration 3' },
+    { id: 'hero4', src: 'assets/images/hero/hero4.jpg', alt: 'Illustration 4' },
+    { id: 'hero5', src: 'assets/images/hero/hero5.jpg', alt: 'Illustration 5' },
+    { id: 'hero6', src: 'assets/images/hero/hero6.jpg', alt: 'Illustration 6' },
+    { id: 'hero7', src: 'assets/images/hero/hero7.jpg', alt: 'Illustration 7' },
   ],
 
   surfaceProjects: [

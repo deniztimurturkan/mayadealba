@@ -43,8 +43,22 @@ main {
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   HEADER & NAV  — centered stacked layout
+   LOGO & NAV
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Logo sits above the sticky nav and scrolls away with the page */
+.logo-wrap {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-xl) var(--gutter) var(--space-md);
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+/* Only the nav bar is sticky */
 .site-header {
   position: sticky;
   top: 0;
@@ -53,42 +67,12 @@ main {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--color-border);
-
-  display: grid;
-  grid-template-rows: 1fr auto;
-  justify-items: center;
-  padding: var(--space-xl) var(--gutter) var(--space-md);
-  gap: var(--space-md);
-
-  transition: padding var(--transition-base), gap var(--transition-base),
-              grid-template-rows 0.35s ease, box-shadow var(--transition-base);
-}
-
-/* ── Compact state — triggered by JS on scroll ── */
-.header-scrolled {
-  grid-template-rows: 0fr auto;
-  padding: var(--space-sm) var(--gutter);
-  gap: 0;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
-}
 
-/* Logo — centered, large; overflow:hidden enables grid 0fr collapse */
-.logo-link {
   display: flex;
+  justify-content: center;
   align-items: center;
-  overflow: hidden;
-  min-height: 0;
-  font-family: var(--font-display);
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--color-text);
-  letter-spacing: 0.02em;
-  transition: opacity var(--transition-base);
-}
-
-.header-scrolled .logo-link {
-  opacity: 0;
-  pointer-events: none;
+  padding: var(--space-sm) var(--gutter);
 }
 
 .site-logo {
@@ -157,17 +141,19 @@ main {
    MOBILE NAV  (< 768px)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 @media (max-width: 767px) {
-  .site-header {
-    flex-direction: row;
-    flex-wrap: wrap;
+  .logo-wrap {
     padding: var(--space-md) var(--gutter);
-    justify-content: space-between;
-    align-items: center;
-    gap: 0;
   }
 
   .site-logo {
     height: 52px;
+  }
+
+  .site-header {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    padding: var(--space-sm) var(--gutter);
+    gap: 0;
   }
 
   .nav-toggle {
