@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/variables.css">
@@ -33,57 +33,76 @@
 
   <main>
 
-    <!-- About Section -->
-    <section class="about-section" aria-labelledby="about-heading">
-      <div class="container about-grid">
-        <div class="about-text">
-          <p class="section-label">About</p>
-          <h1 class="about-heading" id="about-heading">Maya de Alba</h1>
-          <div class="about-bio" id="aboutBio">
-            <!-- injected by about.js -->
+    <!-- ── About Section ── -->
+    <section class="about-section">
+      <div class="about-grid">
+
+        <div class="about-photo-col">
+          <img src="assets/images/aboutme-illustration.jpg"
+               alt="Maya Angela de Alba"
+               class="about-photo-img"
+               loading="eager">
+        </div>
+
+        <div class="about-content-col">
+          <h1 class="about-heading">About Me!</h1>
+          <hr class="about-rule">
+          <div class="about-body">
+            <p>Hello! My name is Maya Angela de Alba (she/her) and I am an illustrator currently based in <strong>Atlanta, Georgia</strong>. As a huge bookworm and a lover of anything fantastical, I seek to illustrate work that evokes emotions, showcases the beauty of storytelling, and sparks the imagination of my viewers. Through my illustration I hope to not simply create, but to inspire.</p>
+            <p>Currently, I am pursuing a Bachelor of Fine Arts degree at the <strong>Savannah College of Art and Design</strong>, set to graduate by May of 2027. I am seeking opportunities in <strong>publishing and surface design</strong>.</p>
           </div>
         </div>
-        <div class="about-photo">
-          <img src="assets/images/maya-portrait.jpg" alt="Maya de Alba at work" loading="lazy">
-        </div>
+
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" aria-labelledby="contact-heading">
-      <div class="container contact-inner">
-        <p class="section-label">Let's Talk</p>
-        <h2 class="contact-heading" id="contact-heading">Get in Touch</h2>
-        <p class="contact-body">
-          Available for commissions, collaborations, and licensing inquiries.
-        </p>
-        <div class="contact-links">
-          <a href="mailto:maya@example.com" class="contact-link" id="contactEmail">
-            <span class="contact-link-icon" aria-hidden="true">✉</span>
-            <span>maya@example.com</span>
-          </a>
-          <a href="https://instagram.com/" class="contact-link" id="contactInstagram"
-             target="_blank" rel="noopener noreferrer">
-            <span class="contact-link-icon" aria-hidden="true">&#9670;</span>
-            <span>Instagram</span>
-          </a>
+    <!-- ── Contact Section ── -->
+    <section class="contact-section">
+      <hr class="section-rule">
+      <div class="contact-grid">
+
+        <div class="contact-info-col">
+          <h2 class="contact-heading">Contact Me!</h2>
+          <hr class="contact-rule">
+          <p class="contact-item">
+            <strong>Email:</strong>
+            <a href="mailto:mayadeangela@gmail.com" id="contactEmail">mayadeangela@gmail.com</a>
+          </p>
+          <p class="contact-item">
+            <strong>Instagram:</strong>
+            <a href="https://www.instagram.com/mayadealbaillustrations/"
+               id="contactInstagram"
+               target="_blank"
+               rel="noopener noreferrer">mayadealbaillustrations</a>
+          </p>
         </div>
+
+        <div class="contact-image-col">
+          <img src="assets/images/contact-illustration.jpg"
+               alt="The Illustrator Maya — black and white artwork"
+               class="contact-illustration"
+               loading="lazy">
+        </div>
+
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <p>&copy; 2026 Maya Angela de Alba</p>
+  <!-- ── Footer ── -->
+  <footer class="site-footer about-footer">
+    <p class="footer-copyright">&copy; 2026 Maya Angela de Alba</p>
     <nav class="footer-nav" aria-label="Footer navigation">
-      <a href="mailto:maya@example.com" id="footerEmail">Email</a>
+      <a href="mailto:mayadeangela@gmail.com" id="footerEmail">Email</a>
       <span aria-hidden="true">|</span>
-      <a href="https://instagram.com/" id="footerInstagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.instagram.com/mayadealbaillustrations/"
+         id="footerInstagram"
+         target="_blank"
+         rel="noopener noreferrer">Instagram</a>
     </nav>
   </footer>
 
   <script src="assets/js/data.js"></script>
   <script src="assets/js/nav.js"></script>
-  <script src="assets/js/about.js"></script>
 </body>
 </html>
