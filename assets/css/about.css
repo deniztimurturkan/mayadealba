@@ -1,7 +1,12 @@
-/* ── Page base: white background ── */
+/* ── Page base: white content, dark header ── */
 body {
   background: #ffffff;
   color: #111111;
+}
+
+.logo-wrap,
+.site-header {
+  background: var(--color-bg);
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
