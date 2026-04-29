@@ -26,6 +26,18 @@ h1, h2, h3, h4 {
 
 p { max-width: 65ch; }
 
+/* ── Scroll Reveal ── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ── Page Entrance Animation ── */
 @keyframes page-in {
   from {
@@ -50,7 +62,7 @@ main {
 .logo-wrap {
   display: flex;
   justify-content: center;
-  padding: var(--space-xl) var(--gutter) var(--space-md);
+  padding: var(--space-md) var(--gutter);
 }
 
 .logo-link {
@@ -63,11 +75,8 @@ main {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(9, 9, 9, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
 
   display: flex;
   justify-content: center;
@@ -76,7 +85,7 @@ main {
 }
 
 .site-logo {
-  height: 130px;
+  height: 180px;
   width: auto;
   object-fit: contain;
 }
