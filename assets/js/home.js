@@ -1,22 +1,14 @@
-/**
- * home.js — hero carousel + bio text injection
- */
 (function () {
   'use strict';
 
-  /* ── Bio text ── */
   const bioEl = document.getElementById('bioShort');
-  if (bioEl && siteData.bio) {
-    bioEl.textContent = siteData.bio.short;
-  }
+  if (bioEl && siteData.bio) bioEl.textContent = siteData.bio.short;
 
-  /* ── Footer links ── */
   const emailEl = document.getElementById('footerEmail');
   const igEl    = document.getElementById('footerInstagram');
   if (emailEl && siteData.email) emailEl.href = 'mailto:' + siteData.email;
-  if (igEl && siteData.instagram)  igEl.href  = siteData.instagram;
+  if (igEl && siteData.instagram) igEl.href = siteData.instagram;
 
-  /* ── Carousel ── */
   const track    = document.getElementById('carouselTrack');
   const viewport = document.getElementById('carouselViewport');
   const dotsWrap = document.getElementById('carouselDots');
@@ -29,112 +21,137 @@
   const total  = slides.length;
   if (total === 0) return;
 
-  let currentIndex = 0;
-  let autoTimer    = null;
+  // 2 clones on each side means the peek on either edge is always filled
+  const CLONES = 2;
+  const GAP    = 8;   // px gap between slides
+  const MS     = 600; // animation duration
 
-  /* Build slide elements */
-  slides.forEach((slide, i) => {
+  let current   = 0;
+  let busy      = false;
+  let autoTimer = null;
+
+  function makeSlide(data) {
     const div = document.createElement('div');
     div.className = 'carousel-slide';
-    div.setAttribute('role', 'group');
-    div.setAttribute('aria-label', 'Slide ' + (i + 1) + ' of ' + total);
-
-    if (slide.src) {
+    if (data.src) {
       const img = document.createElement('img');
-      img.src  = slide.src;
-      img.alt  = slide.alt || '';
-      img.loading = i === 0 ? 'eager' : 'lazy';
+      img.src     = data.src;
+      img.alt     = data.alt || '';
+      img.loading = 'lazy';
       div.appendChild(img);
     } else {
       div.classList.add('carousel-slide--placeholder');
       div.textContent = 'Image coming soon';
     }
+    return div;
+  }
 
-    track.appendChild(div);
-  });
+  // Track layout: [clone(N-2), clone(N-1), real(0)…real(N-1), clone(0), clone(1)]
+  // Visual index of real(i) = CLONES + i
+  for (let i = total - CLONES; i < total; i++) track.appendChild(makeSlide(slides[(i + total) % total]));
+  slides.forEach(s => track.appendChild(makeSlide(s)));
+  for (let i = 0; i < CLONES; i++) track.appendChild(makeSlide(slides[i % total]));
 
-  /* Build dots */
+  // Dots
   slides.forEach((_, i) => {
     const btn = document.createElement('button');
     btn.className = 'carousel-dot' + (i === 0 ? ' active' : '');
     btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-    btn.addEventListener('click', () => { goTo(i); startAuto(); });
+    btn.addEventListener('click', () => { if (!busy) goTo(i); });
     dotsWrap.appendChild(btn);
   });
 
-  function getMetrics() {
-    const vw       = viewport.offsetWidth;
-    const isMobile = window.innerWidth < 768;
+  function updateDots() {
+    document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
 
-    if (isMobile) {
-      return { circleSize: vw, slideWidth: vw, peek: 0, gap: 0 };
+  // Square slides: width = carousel height so images fill without distortion
+  function applyAndTranslate(vi, animate) {
+    const slideW   = viewport.offsetHeight;
+    const step     = slideW + GAP;
+    const centerOff = (viewport.offsetWidth - slideW) / 2;
+
+    track.querySelectorAll('.carousel-slide').forEach(s => {
+      s.style.width       = slideW + 'px';
+      s.style.marginRight = GAP + 'px';
+    });
+
+    if (!animate) {
+      track.style.transition = 'none';
+      void track.offsetWidth; // force reflow so snap is instant
+    } else {
+      track.style.transition = 'transform ' + MS + 'ms cubic-bezier(0.25,0.46,0.45,0.94)';
     }
-
-    const gap        = 32;
-    const circleSize = viewport.offsetHeight;
-    const slideWidth = circleSize + gap;
-    const peek       = (vw - circleSize) / 2;
-    return { circleSize, slideWidth, peek, gap };
+    track.style.transform = 'translateX(' + (-(vi * step) + centerOff) + 'px)';
   }
 
   function goTo(index) {
-    currentIndex = Math.max(0, Math.min(index, total - 1));
-    const { circleSize, slideWidth, peek, gap } = getMetrics();
-
-    document.querySelectorAll('.carousel-slide').forEach(s => {
-      s.style.width       = circleSize + 'px';
-      s.style.marginRight = gap + 'px';
-    });
-
-    track.style.transform = 'translateX(' + (-(currentIndex * slideWidth) + peek) + 'px)';
-
-    document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentIndex);
-    });
+    current = ((index % total) + total) % total;
+    applyAndTranslate(CLONES + current, true);
+    updateDots();
+    resetAuto();
   }
 
-  function next() { goTo(currentIndex === total - 1 ? 0 : currentIndex + 1); }
-  function prev() { goTo(currentIndex === 0 ? total - 1 : currentIndex - 1); }
+  function move(dir) {
+    if (busy) return;
+    busy = true;
 
-  function startAuto() {
-    stopAuto();
-    autoTimer = setInterval(next, 4000);
+    const atEdge = dir === 1 ? current === total - 1 : current === 0;
+
+    if (atEdge) {
+      // Animate into the clone on the far side, then silently snap to the real counterpart
+      const animVI = dir === 1 ? CLONES + total     : CLONES - 1;
+      const snapVI = dir === 1 ? CLONES             : CLONES + total - 1;
+      current = dir === 1 ? 0 : total - 1;
+      applyAndTranslate(animVI, true);
+      updateDots();
+      setTimeout(() => {
+        applyAndTranslate(snapVI, false);
+        busy = false;
+      }, MS);
+    } else {
+      current += dir;
+      applyAndTranslate(CLONES + current, true);
+      updateDots();
+      setTimeout(() => { busy = false; }, MS);
+    }
+    resetAuto();
   }
 
-  function stopAuto() { clearInterval(autoTimer); }
+  function resetAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => move(1), 4000);
+  }
 
-  /* Initial render without animation, then enable transition */
-  goTo(0);
-  requestAnimationFrame(() => track.classList.add('animated'));
+  // Init: start at real(0), no animation
+  applyAndTranslate(CLONES, false);
+  updateDots();
 
-  /* Controls */
-  prevBtn && prevBtn.addEventListener('click', () => { prev(); startAuto(); });
-  nextBtn && nextBtn.addEventListener('click', () => { next(); startAuto(); });
+  prevBtn && prevBtn.addEventListener('click', () => move(-1));
+  nextBtn && nextBtn.addEventListener('click', () => move(1));
 
-  /* Keyboard */
   document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft')  { prev(); startAuto(); }
-    if (e.key === 'ArrowRight') { next(); startAuto(); }
+    if (e.key === 'ArrowLeft')  move(-1);
+    if (e.key === 'ArrowRight') move(1);
   });
 
-  /* Pause on hover */
-  viewport.addEventListener('mouseenter', stopAuto);
-  viewport.addEventListener('mouseleave', startAuto);
+  viewport.addEventListener('mouseenter', () => clearInterval(autoTimer));
+  viewport.addEventListener('mouseleave', resetAuto);
 
-  /* Touch / swipe */
   let touchX = 0;
   viewport.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
   viewport.addEventListener('touchend', e => {
-    const delta = touchX - e.changedTouches[0].clientX;
-    if (Math.abs(delta) > 40) { delta > 0 ? next() : prev(); startAuto(); }
+    const dx = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 40) move(dx > 0 ? 1 : -1);
   }, { passive: true });
 
-  /* Recalculate on resize */
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => goTo(currentIndex), 120);
+    resizeTimer = setTimeout(() => applyAndTranslate(CLONES + current, false), 150);
   });
 
-  startAuto();
+  resetAuto();
 })();

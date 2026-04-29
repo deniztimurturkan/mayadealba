@@ -20,7 +20,6 @@ const siteData = {
     { src: 'assets/images/hero/hero4.jpg', alt: 'Hero artwork 4' },
     { src: 'assets/images/hero/hero5.jpg', alt: 'Hero artwork 5' },
     { src: 'assets/images/hero/hero6.jpg', alt: 'Hero artwork 6' },
-    { src: 'assets/images/hero/hero7.jpg', alt: 'Hero artwork 7' },
   ],
 
   illustrations: [
@@ -30,7 +29,26 @@ const siteData = {
     { id: 'hero4', src: 'assets/images/hero/hero4.jpg', alt: 'Illustration 4' },
     { id: 'hero5', src: 'assets/images/hero/hero5.jpg', alt: 'Illustration 5' },
     { id: 'hero6', src: 'assets/images/hero/hero6.jpg', alt: 'Illustration 6' },
-    { id: 'hero7', src: 'assets/images/hero/hero7.jpg', alt: 'Illustration 7' },
+  ],
+
+  motionProjects: [
+    {
+      id:          'food-of-the-philippines',
+      title:       'Food of The Philippines',
+      tagline:     'Enter tagline here! :3',
+      thumbnail:   'assets/images/motion/food-of-philippines.jpg',
+      description: 'A personal project showcasing the different food found in various parts of the Philippines, my home country! Made with Adobe After Effects.',
+      video:       'https://www.youtube.com/watch?v=y0sF5xhGreA',
+    },
+    {
+      id:          'cup-noodle-ad',
+      title:       'Cup Noodles Advetisement',
+      tagline:     'Enter tagline here! :3',
+      thumbnail:   'assets/images/motion/cup-noodle-ad.jpg',
+      description: 'A seamlessly looping animated piece drawing from Eastern European folk art motifs, exploring the rhythm and repetition found in traditional textile patterns.',
+      video:       'https://www.youtube.com/watch?v=PEJ2vWtrJ-E',
+    },
+    // Add more motion projects here
   ],
 
   surfaceProjects: [
