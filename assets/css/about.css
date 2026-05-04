@@ -13,7 +13,7 @@ body {
    ABOUT SECTION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .about-section {
-  /* padding: var(--space-3xl) var(--gutter); */
+  padding: var(--space-3xl) var(--gutter);
   max-width: 960px;
   margin-inline: auto;
 }
@@ -172,6 +172,10 @@ body {
 
 /* ── Responsive ── */
 @media (max-width: 767px) {
+  .about-section {
+    padding-inline: var(--space-xl);
+  }
+
   .about-grid,
   .contact-grid {
     grid-template-columns: 1fr;
@@ -181,6 +185,14 @@ body {
   .about-photo-img {
     max-width: 340px;
     margin-inline: auto;
+  }
+
+  .about-heading {
+    text-align: center;
+  }
+
+  .about-body p {
+    max-width: 100%;
   }
 
   .contact-image-col { order: -1; }
