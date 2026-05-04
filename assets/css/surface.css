@@ -84,9 +84,9 @@
   text-transform: uppercase;
 }
 
-/* Back — white with title */
+/* Back — dark with decorative star pattern */
 .card-back {
-  background: var(--color-bg-light);
+  background: var(--color-surface);
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
@@ -95,19 +95,20 @@
   padding: var(--space-xl);
   text-align: center;
   gap: var(--space-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .card-back-title {
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   font-weight: 700;
-  color: #111;
+  color: var(--color-text);
   line-height: 1.2;
 }
 
 .card-back-tagline {
   font-size: 0.875rem;
-  color: #555;
+  color: var(--color-text-muted);
   line-height: 1.5;
 }
 
