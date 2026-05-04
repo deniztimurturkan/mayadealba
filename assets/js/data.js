@@ -78,6 +78,31 @@ const siteData = {
         'assets/images/surface/medieval-mockup-fabric.jpg',
       ],
     },
-    // Add more surface design projects here
+    {
+      id:          'dinosaurs-in-space',
+      title:       'Dinosaurs in Space',
+      tagline:     'cool dinosaurs :3',
+      thumbnail:   'assets/images/surface/dinosaurs-in-space.jpg',
+      description: 'A self-directed pattern project designed for children’s apparel, wrapping paper, greeting cards, and school materials.',
+      images: [
+        'assets/images/surface/dinosaurs-in-space.jpg',
+      ],
+      processDescription: '',
+      processImages: [],
+      mockupImages: [],
+    },
+    {
+      id:          'filipino-christmas',
+      title:       'Filipino Christmas',
+      tagline:     'Maligayang pasko: a Filipino Christmas',
+      thumbnail:   'assets/images/surface/filipino-christmas.webp',
+      description: 'A Christmas collection inspired by cultural aspects of the traditional Filipino Christmas.',
+      images: [
+        'assets/images/surface/filipino-christmas.webp',
+      ],
+      processDescription: '',
+      processImages: [],
+      mockupImages: [],
+    },
   ],
 };
