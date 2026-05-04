@@ -56,7 +56,7 @@ const siteData = {
       id:          'medieval-fairytale',
       title:       'Medieval Fairytale',
       tagline:     'Medieval history, art, and culture with a mix of fantasy',
-      thumbnail:   'assets/images/surface/medieval-thumb.jpg',
+      thumbnail:   'assets/images/surface/medieval-fairytale.jpg',
       description: 'A personal pattern project based on my favorite things: Medieval history, art, and culture with a mix of fantasy!',
       images: [
         'assets/images/surface/medieval-motifs-green.jpg',
