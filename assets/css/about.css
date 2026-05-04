@@ -196,4 +196,13 @@ body {
   }
 
   .contact-image-col { order: -1; }
+
+  .contact-grid {
+    padding-inline: var(--space-xl);
+  }
+
+  .contact-heading,
+  .contact-item {
+    text-align: center;
+  }
 }
