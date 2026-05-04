@@ -13,7 +13,7 @@ body {
    ABOUT SECTION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .about-section {
-  padding: var(--space-2xl) var(--gutter);
+  /* padding: var(--space-3xl) var(--gutter); */
   max-width: 960px;
   margin-inline: auto;
 }
