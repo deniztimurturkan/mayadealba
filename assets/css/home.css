@@ -16,7 +16,7 @@
 .carousel-viewport {
   overflow: hidden;
   width: 100%;
-  height: clamp(300px, 46vh, 500px);
+  height: clamp(380px, 56vh, 600px);
 }
 
 .carousel-track {
@@ -29,7 +29,7 @@
   flex: 0 0 auto;
   height: 100%;
   overflow: hidden;
-  /* width + marginRight set by JS based on viewport height (square crop) */
+  /* width + marginRight set by JS based on portrait aspect ratio */
 }
 
 .carousel-slide img {
