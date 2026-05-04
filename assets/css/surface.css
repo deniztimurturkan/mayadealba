@@ -30,8 +30,14 @@
 
 /* ── Flip Card Mechanics ── */
 .card-wrapper {
-  perspective: 1000px;
+  perspective: 1200px;
   cursor: pointer;
+  transition: box-shadow 500ms ease, transform 500ms ease;
+}
+
+.card-wrapper:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(46, 139, 110, 0.35), 0 4px 16px rgba(46, 139, 110, 0.15);
 }
 
 .card {
@@ -40,7 +46,8 @@
   aspect-ratio: 3 / 4;
   border-radius: var(--radius-lg);
   transform-style: preserve-3d;
-  transition: transform var(--transition-slow) ease;
+  /* spring overshoot easing gives a "snap into place" magical feel */
+  transition: transform 750ms cubic-bezier(0.34, 1.4, 0.64, 1);
 }
 
 .card-wrapper:hover .card,
