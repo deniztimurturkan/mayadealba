@@ -21,10 +21,9 @@
   const total  = slides.length;
   if (total === 0) return;
 
-  // 2 clones on each side means the peek on either edge is always filled
   const CLONES = 2;
-  const GAP    = 8;   // px gap between slides
-  const MS     = 600; // animation duration
+  const GAP    = 2;
+  const MS     = 600;
 
   let current   = 0;
   let busy      = false;
@@ -35,9 +34,8 @@
     div.className = 'carousel-slide';
     if (data.src) {
       const img = document.createElement('img');
-      img.src     = data.src;
-      img.alt     = data.alt || '';
-      img.loading = 'lazy';
+      img.src = data.src;
+      img.alt = data.alt || '';
       div.appendChild(img);
     } else {
       div.classList.add('carousel-slide--placeholder');
@@ -47,10 +45,16 @@
   }
 
   // Track layout: [clone(N-2), clone(N-1), real(0)…real(N-1), clone(0), clone(1)]
-  // Visual index of real(i) = CLONES + i
-  for (let i = total - CLONES; i < total; i++) track.appendChild(makeSlide(slides[(i + total) % total]));
-  slides.forEach(s => track.appendChild(makeSlide(s)));
-  for (let i = 0; i < CLONES; i++) track.appendChild(makeSlide(slides[i % total]));
+  const trackData = [];
+  for (let i = total - CLONES; i < total; i++) trackData.push(slides[(i + total) % total]);
+  slides.forEach(s => trackData.push(s));
+  for (let i = 0; i < CLONES; i++) trackData.push(slides[i % total]);
+
+  const trackEls = trackData.map(data => {
+    const el = makeSlide(data);
+    track.appendChild(el);
+    return el;
+  });
 
   // Dots
   slides.forEach((_, i) => {
@@ -67,24 +71,44 @@
     });
   }
 
-  // Square slides: width = carousel height so images fill without distortion
-  function applyAndTranslate(vi, animate) {
-    const slideW   = viewport.offsetHeight;
-    const step     = slideW + GAP;
-    const centerOff = (viewport.offsetWidth - slideW) / 2;
-
-    track.querySelectorAll('.carousel-slide').forEach(s => {
-      s.style.width       = slideW + 'px';
-      s.style.marginRight = GAP + 'px';
+  // Each slide's width derived from the image's natural aspect ratio
+  function getSlideWidths() {
+    const h = viewport.offsetHeight;
+    return trackEls.map(el => {
+      const img = el.querySelector('img');
+      if (img && img.naturalWidth && img.naturalHeight) {
+        return Math.round(h * img.naturalWidth / img.naturalHeight);
+      }
+      return h; // square fallback for placeholders / not-yet-loaded
     });
+  }
+
+  // Cumulative left-edge position of each slide in the track
+  function getOffsets(widths) {
+    const offsets = [];
+    let pos = 0;
+    widths.forEach(w => { offsets.push(pos); pos += w + GAP; });
+    return offsets;
+  }
+
+  function applyAndTranslate(vi, animate) {
+    const widths  = getSlideWidths();
+    const offsets = getOffsets(widths);
+
+    trackEls.forEach((el, i) => {
+      el.style.width       = widths[i] + 'px';
+      el.style.marginRight = GAP + 'px';
+    });
+
+    const centerOff = (viewport.offsetWidth - widths[vi]) / 2;
 
     if (!animate) {
       track.style.transition = 'none';
-      void track.offsetWidth; // force reflow so snap is instant
+      void track.offsetWidth;
     } else {
       track.style.transition = 'transform ' + MS + 'ms cubic-bezier(0.25,0.46,0.45,0.94)';
     }
-    track.style.transform = 'translateX(' + (-(vi * step) + centerOff) + 'px)';
+    track.style.transform = 'translateX(' + (-offsets[vi] + centerOff) + 'px)';
   }
 
   function goTo(index) {
@@ -101,9 +125,8 @@
     const atEdge = dir === 1 ? current === total - 1 : current === 0;
 
     if (atEdge) {
-      // Animate into the clone on the far side, then silently snap to the real counterpart
-      const animVI = dir === 1 ? CLONES + total     : CLONES - 1;
-      const snapVI = dir === 1 ? CLONES             : CLONES + total - 1;
+      const animVI = dir === 1 ? CLONES + total : CLONES - 1;
+      const snapVI = dir === 1 ? CLONES         : CLONES + total - 1;
       current = dir === 1 ? 0 : total - 1;
       applyAndTranslate(animVI, true);
       updateDots();
@@ -125,7 +148,17 @@
     autoTimer = setInterval(() => move(1), 4000);
   }
 
-  // Init: start at real(0), no animation
+  // Re-apply once all images have loaded so natural dimensions are available
+  const allImgs = Array.from(track.querySelectorAll('img'));
+  Promise.all(
+    allImgs.map(img =>
+      img.complete
+        ? Promise.resolve()
+        : new Promise(res => { img.onload = res; img.onerror = res; })
+    )
+  ).then(() => applyAndTranslate(CLONES + current, false));
+
+  // Immediate init (handles cached images)
   applyAndTranslate(CLONES, false);
   updateDots();
 
