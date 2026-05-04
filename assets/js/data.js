@@ -20,6 +20,9 @@ const siteData = {
     { src: 'assets/images/hero/hero4.jpg', alt: 'Hero artwork 4' },
     { src: 'assets/images/hero/hero5.jpg', alt: 'Hero artwork 5' },
     { src: 'assets/images/hero/hero6.jpg', alt: 'Hero artwork 6' },
+    { src: 'assets/images/hero/hero7.jpg', alt: 'Hero artwork 7' },
+    { src: 'assets/images/hero/hero8.jpg', alt: 'Hero artwork 8' },
+
   ],
 
   illustrations: [
@@ -29,6 +32,8 @@ const siteData = {
     { id: 'hero4', src: 'assets/images/hero/hero4.jpg', alt: 'Illustration 4' },
     { id: 'hero5', src: 'assets/images/hero/hero5.jpg', alt: 'Illustration 5' },
     { id: 'hero6', src: 'assets/images/hero/hero6.jpg', alt: 'Illustration 6' },
+    { id: 'hero7', src: 'assets/images/hero/hero7.jpg', alt: 'Illustration 7' },
+    { id: 'hero8', src: 'assets/images/hero/hero8.jpg', alt: 'Illustration 8' },
   ],
 
   motionProjects: [
