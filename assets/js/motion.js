@@ -22,7 +22,7 @@
   projects.forEach(project => {
     const a = document.createElement('a');
     a.className = 'motion-card';
-    a.href      = 'motion-detail.html?id=' + encodeURIComponent(project.id);
+    a.href      = 'motion-detail/?id=' + encodeURIComponent(project.id);
     a.setAttribute('aria-label', project.title);
 
     /* Thumbnail wrapper */
