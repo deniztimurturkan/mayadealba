@@ -70,7 +70,7 @@
 
     /* Navigation */
     const navigate = () => {
-      window.location.href = 'surface-detail.html?id=' + encodeURIComponent(project.id);
+      window.location.href = 'surface-detail/?id=' + encodeURIComponent(project.id);
     };
 
     if (isTouchDevice) {
