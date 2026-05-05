@@ -3,14 +3,19 @@
  */
 
 function setActiveNav() {
-  const filename = window.location.pathname.split('/').pop() || 'index.html';
+  const SECTIONS = ['illustration', 'surface-design', 'motion', 'about', 'surface-detail', 'motion-detail'];
+  const parts = window.location.pathname.replace(/\/$/, '').split('/').filter(Boolean);
+  const lastPart = parts[parts.length - 1] || '';
 
-  // surface-detail.html is a sub-page of surface-design.html
-  const activeFile = filename === 'surface-detail.html' ? 'surface-design.html' : filename;
+  const detailMap = { 'surface-detail': 'surface-design', 'motion-detail': 'motion' };
+  const isHome = !SECTIONS.includes(lastPart);
+  const activeSection = isHome ? '' : (detailMap[lastPart] || lastPart);
 
   document.querySelectorAll('.site-nav a').forEach(link => {
     const href = link.getAttribute('href');
-    if (href === activeFile || (activeFile === '' && href === 'index.html')) {
+    const hrefParts = href.replace(/\/$/, '').split('/').filter(s => s && s !== '..' && s !== '.');
+    const linkSection = hrefParts[hrefParts.length - 1] || '';
+    if (linkSection === activeSection) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
     }
