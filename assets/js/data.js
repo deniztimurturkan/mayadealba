@@ -43,7 +43,7 @@ const siteData = {
       tagline:     'Enter tagline here! :3',
       thumbnail:   'assets/images/motion/food-of-philippines.jpg',
       description: 'A personal project showcasing the different food found in various parts of the Philippines, my home country! Made with Adobe After Effects.',
-      video:       'https://www.youtube.com/watch?v=y0sF5xhGreA',
+      video:       'https://www.youtube.com/watch?v=yNa8jP4zoJo',
     },
     {
       id:          'cup-noodle-ad',
