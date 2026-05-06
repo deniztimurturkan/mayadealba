@@ -192,7 +192,7 @@
   if (typeof openPopup === 'function') {
     openPopup({
       title: 'Welcome!',
-      body:  '<p>Hiii!! hi hi hi :D<p><p>Hi Maya! I hope you are having a good day, or night, idk when you will open the letter so I am not going to assume heh.<p><p>I have been thinking for a long time on what I can get for you as a gift, and I thought having your custom website where it is so much easier to edit, also practically free, would be a nice gift. Here is a small gift I have prepared for you. I hope you like it :)<p><p>Happy Birthday!~<p>',
+      body:  '<p>Hiii!! hi hi hi :D<p><p>Hi Maya! I hope you are having a good day, or night, idk when you will open the letter so I am not going to assume heh.<p><p>I have been thinking for a long time on what I can get for you as a gift, and I thought having your custom website where it is so much easier to edit, also practically free, would be a nice gift. Here is a small gift I have prepared for you. I hope you like it :)<p><p>Happy Birthday!~<p><p>NOTE: I know you do not like my design skills (WHATTEEVERSSSSS) so I tried really hard to follow your original website pattern. I did add some of my features I like to do so I hope you do not mind them :3 let me know if you want anything removed, changed, etc! You will see not all pages are finished bc I actually need these images from you LOL it was a real hasslle to grab these images from your existing website. Anyways, we can talk ab that stuff later enjoy <3',
     });
   }
 })();
