@@ -307,12 +307,13 @@ main {
   background: rgba(0, 0, 0, 0.72);
   z-index: 900;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: var(--space-md);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s ease;
+  overflow-y: auto;
 }
 
 .popup-backdrop.is-open {
@@ -331,6 +332,9 @@ main {
   box-shadow: var(--shadow-card);
   transform: translateY(18px) scale(0.97);
   transition: transform 0.25s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+  margin: auto;
 }
 
 .popup-backdrop.is-open .popup-card {
