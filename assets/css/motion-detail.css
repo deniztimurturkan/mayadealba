@@ -13,6 +13,12 @@
   pointer-events: none;
 }
 
+/* Solid header so background image doesn't bleed through */
+.logo-wrap,
+.site-header {
+  background: var(--color-bg);
+}
+
 /* Back link */
 .md-back {
   padding-top: var(--space-2xl);
