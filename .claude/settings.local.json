@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git remote *)"
+      "Bash(git remote *)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\Deniz\\\\Documents\\\\GitHub\\\\mayadealba\\\\assets\\\\images\\\\\" -Recurse -Force | Select-Object -Property FullName | Sort-Object FullName)",
+      "Bash(python -c ' *)"
     ]
   }
 }

@@ -19,6 +19,14 @@
     return;
   }
 
+  /* ── Full-page background ── */
+  if (project.thumbnail) {
+    const pageBg = document.createElement('div');
+    pageBg.className = 'page-bg-image';
+    pageBg.style.backgroundImage = `url(${project.thumbnail})`;
+    document.body.insertBefore(pageBg, document.body.firstChild);
+  }
+
   /* Page metadata */
   document.title = project.title + ' — Maya de Alba';
   const metaDesc = document.querySelector('meta[name="description"]');
