@@ -187,4 +187,12 @@
   });
 
   resetAuto();
+
+  // TEMPORARY: auto-open welcome popup on first load — remove with popup.js + its CSS block
+  if (typeof openPopup === 'function') {
+    openPopup({
+      title: 'Welcome!',
+      body:  '<p>Hiii!! hi hi hi :D<p><p>Hi Maya! I hope you are having a good day, or night, idk when you will open the letter so I am not going to assume heh.<p><p>I have been thinking for a long time on what I can get for you as a gift, and I thought having your custom website where it is so much easier to edit, also practically free, would be a nice gift. Here is a small gift I have prepared for you. I hope you like it :)<p><p>Happy Birthday!~<p>',
+    });
+  }
 })();
