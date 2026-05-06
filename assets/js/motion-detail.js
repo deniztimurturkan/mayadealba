@@ -49,7 +49,10 @@
 
     if (isEmbed) {
       const iframe = document.createElement('iframe');
-      iframe.src             = project.video;
+      let embedSrc = project.video;
+      const ytMatch = project.video.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?/]+)/);
+      if (ytMatch) embedSrc = `https://www.youtube.com/embed/${ytMatch[1]}`;
+      iframe.src             = embedSrc;
       iframe.title           = project.title;
       iframe.allow           = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       iframe.allowFullscreen = true;
