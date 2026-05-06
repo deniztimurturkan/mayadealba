@@ -23,6 +23,23 @@
     return;
   }
 
+  /* ── Full-page background ── */
+  if (project.images && project.images.length) {
+    const pageBg = document.createElement('div');
+    pageBg.className = 'page-bg-image';
+    pageBg.style.backgroundImage = `url(${project.images[0]})`;
+    document.body.insertBefore(pageBg, document.body.firstChild);
+
+    const heroEl = document.querySelector('.detail-hero');
+    if (heroEl) {
+      const heroBg = document.createElement('div');
+      heroBg.className = 'process-bg-image';
+      heroBg.style.backgroundImage = `url(${project.images[0]})`;
+      heroBg.style.opacity = '0.15';
+      heroEl.insertBefore(heroBg, heroEl.firstChild);
+    }
+  }
+
   /* ── Page metadata ── */
   document.title = project.title + ' — Maya de Alba';
 
@@ -51,6 +68,12 @@
   /* ── Process section ── */
   if (processEl && (project.processDescription || (project.processImages && project.processImages.length))) {
     processEl.hidden = false;
+    if (project.processImages && project.processImages.length) {
+      const bgDiv = document.createElement('div');
+      bgDiv.className = 'process-bg-image';
+      bgDiv.style.backgroundImage = `url(${project.processImages[0]})`;
+      processEl.insertBefore(bgDiv, processEl.firstChild);
+    }
     if (processDescEl && project.processDescription) {
       processDescEl.textContent = project.processDescription;
     }
