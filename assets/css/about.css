@@ -14,7 +14,7 @@ body {
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .about-section {
   padding: var(--space-3xl) var(--gutter);
-  max-width: 960px;
+  max-width: var(--max-width);
   margin-inline: auto;
 }
 
@@ -73,6 +73,24 @@ body {
   font-weight: 700;
   color: #111;
 }
+
+.about-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.link-accent {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.link-accent:hover { color: #246f56; }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    CONTACT SECTION
@@ -139,9 +157,9 @@ body {
    FOOTER — large bold layout
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .about-footer {
-  background: #ffffff;
-  color: #111;
-  border-top: 1.5px solid #d0d0d0;
+  background: var(--color-bg);
+  color: #fff;
+  border-top: none;
   padding: var(--space-3xl) var(--gutter);
   gap: var(--space-lg);
 }
@@ -152,12 +170,12 @@ body {
   font-weight: 800;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #111;
+  color: #fff;
   max-width: none;
 }
 
 .about-footer .footer-nav a {
-  color: #111;
+  color: #fff;
   text-decoration: underline;
   text-underline-offset: 3px;
   font-size: 0.875rem;
@@ -168,7 +186,7 @@ body {
 
 .about-footer .footer-nav a:hover { color: var(--color-accent); }
 
-.about-footer .footer-nav span { color: #999; }
+.about-footer .footer-nav span { color: #777; }
 
 /* ── Responsive ── */
 @media (max-width: 767px) {
