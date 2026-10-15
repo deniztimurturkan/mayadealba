@@ -6,22 +6,10 @@ body {
   color: #111;
 }
 
+.logo-wrap,
 .site-header {
-  background: rgba(255, 255, 255, 0.92);
-  border-bottom-color: rgba(0, 0, 0, 0.08);
+  background: var(--color-bg);
 }
-
-.header-scrolled {
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-}
-
-.site-nav a { color: #555; }
-.site-nav a:hover,
-.site-nav a.active { color: #111; }
-
-.site-nav a::after { background: var(--color-accent); }
-
-.nav-toggle { color: #111; }
 
 /* ── Full-page background image ── */
 .page-bg-image {

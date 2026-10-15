@@ -1,3 +1,14 @@
+/* ── Page base: white content, dark header ── */
+body {
+  background: #ffffff;
+  color: #111111;
+}
+
+.logo-wrap,
+.site-header {
+  background: var(--color-bg);
+}
+
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    PAGE HEADER
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -8,12 +19,12 @@
 
 .surface-title {
   font-size: clamp(2.5rem, 6vw, 4rem);
-  color: var(--color-text);
+  color: #111;
   margin-bottom: var(--space-sm);
 }
 
 .surface-subtitle {
-  color: var(--color-text-muted);
+  color: #666;
   font-size: 0.9375rem;
   max-width: none;
 }
@@ -134,7 +145,7 @@
   grid-column: 1 / -1;
   text-align: center;
   padding: var(--space-3xl) 0;
-  color: var(--color-text-muted);
+  color: #777;
 }
 
 /* ── Responsive ── */
