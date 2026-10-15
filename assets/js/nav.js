@@ -3,11 +3,11 @@
  */
 
 function setActiveNav() {
-  const SECTIONS = ['illustration', 'surface-design', 'motion', 'about', 'surface-detail', 'motion-detail'];
+  const SECTIONS = ['illustration', 'surface-design', 'about', 'surface-detail'];
   const parts = window.location.pathname.replace(/\/$/, '').split('/').filter(Boolean);
   const lastPart = parts[parts.length - 1] || '';
 
-  const detailMap = { 'surface-detail': 'surface-design', 'motion-detail': 'motion' };
+  const detailMap = { 'surface-detail': 'surface-design' };
   const isHome = !SECTIONS.includes(lastPart);
   const activeSection = isHome ? '' : (detailMap[lastPart] || lastPart);
 
