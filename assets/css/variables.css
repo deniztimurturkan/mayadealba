@@ -12,6 +12,7 @@
   /* ── Typography ── */
   --font-display: 'Playfair Display', 'Georgia', serif;
   --font-body:    'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-accent:  'Fraunces', 'Georgia', serif;
 
   /* ── Spacing scale ── */
   --space-xs:  0.25rem;   /*  4px */
