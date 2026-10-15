@@ -30,6 +30,8 @@
 }
 
 .home-hero-description {
+  font-family: var(--font-display);
+  font-weight: 700;
   margin-top: var(--space-lg);
   font-size: 1.0625rem;
   line-height: 1.75;
