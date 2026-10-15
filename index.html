@@ -9,7 +9,7 @@
   <meta property="og:description" content="Portfolio of Maya Angela de Alba — illustrator, surface designer, and motion artist.">
   <meta property="og:type"        content="website">
   <meta property="og:image"       content="assets/images/hero/hero1.jpg">
-  <link rel="icon" type="image/png" href="assets/images/cat.png">
+  <link rel="icon" type="image/png" href="assets/images/star-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,36 +40,40 @@
 
   <main>
 
-    <!-- Hero Carousel -->
-    <section class="hero" aria-label="Featured work">
-      <div class="carousel" id="heroCarousel">
-        <button class="carousel-btn carousel-btn--prev" aria-label="Previous slide">&#8249;</button>
-        <div class="carousel-viewport" id="carouselViewport">
-          <div class="carousel-track" id="carouselTrack"></div>
-        </div>
-        <button class="carousel-btn carousel-btn--next" aria-label="Next slide">&#8250;</button>
+    <!-- Hero Section -->
+    <section class="home-hero" aria-label="Introduction">
+      <div class="home-hero-inner" data-reveal>
+        <h1 class="home-hero-heading">Pattern Designer &amp; Illustrator</h1>
+        <p class="home-hero-description">Maya de Alba creates colorful, vibrant patterns &amp; illustrations full of fantasy, whimsical spirit, and joy, inspired by the beauty of nature and storytelling.</p>
       </div>
-      <div class="carousel-dots" id="carouselDots" aria-label="Slide navigation"></div>
     </section>
 
-    <!-- Bio Section -->
-    <section class="bio" aria-labelledby="bio-heading">
-      <div class="container bio-grid">
-        <div class="bio-text" data-reveal>
-          <p class="section-label">Welcome</p>
-          <h1 class="bio-heading" id="bio-heading">Hello!</h1>
-          <p class="bio-description" id="bioShort"></p>
-          <a href="about/" class="btn">About Me</a>
-        </div>
-        <div class="bio-photo" data-reveal style="transition-delay: 0.15s">
+    <!-- My Approach Section -->
+    <section class="approach-section" aria-labelledby="approach-heading">
+      <div class="approach-inner" data-reveal>
+        <h2 class="approach-heading" id="approach-heading">My Approach</h2>
+        <p class="approach-description">As an illustrator, I love to tell stories. Whether that be through my illustrated pieces or my pattern designs! I seek to create patterns that flow with grace and exhibit a sense of magic, as I grew up loving fantasy storybooks and films. Through my work I hope to inspire and rekindle a colorful imagination in my viewers. Click below to see my work!</p>
+        <a href="illustration/" class="btn-dark">Get Started</a>
+      </div>
+    </section>
+
+    <!-- Reach Out Section -->
+    <section class="reach-section" aria-labelledby="reach-heading">
+      <div class="reach-grid">
+        <div class="reach-photo">
           <img src="assets/images/maya-portrait.jpg" alt="Maya de Alba drawing at her desk" loading="lazy">
+        </div>
+        <div class="reach-content" data-reveal>
+          <h2 class="reach-heading" id="reach-heading">Reach out to me</h2>
+          <p class="reach-description">Interested in my work and want to contact me? Click below!</p>
+          <a href="about/" class="btn-light">Learn more</a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer home-footer">
     <p>&copy; 2026 Maya Angela de Alba</p>
     <nav class="footer-nav" aria-label="Footer navigation">
       <a href="mailto:maya@example.com" id="footerEmail">Email</a>
