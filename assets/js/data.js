@@ -10,7 +10,7 @@ const siteData = {
 
   bio: {
     short: 'My name is Maya Angela de Alba and I am an illustrator currently pursuing a BFA at the Savannah College of Art and Design.',
-    long:  'My name is Maya Angela de Alba and I am an illustrator currently pursuing a BFA at the Savannah College of Art and Design. My work spans editorial illustration, surface design, and motion, drawing from a love of folklore, natural history, and handcrafted ornament.',
+    long:  'My name is Maya Angela de Alba and I am an illustrator currently pursuing a BFA at the Savannah College of Art and Design. My work spans editorial illustration and surface design, drawing from a love of folklore, natural history, and handcrafted ornament.',
   },
 
   heroImages: [
@@ -26,34 +26,18 @@ const siteData = {
   ],
 
   illustrations: [
-    { id: 'hero1', src: 'assets/images/hero/hero1.jpg', alt: 'Illustration 1' },
-    { id: 'hero2', src: 'assets/images/hero/hero2.jpg', alt: 'Illustration 2' },
-    { id: 'hero3', src: 'assets/images/hero/hero3.jpg', alt: 'Illustration 3' },
-    { id: 'hero4', src: 'assets/images/hero/hero4.jpg', alt: 'Illustration 4' },
-    { id: 'hero5', src: 'assets/images/hero/hero5.jpg', alt: 'Illustration 5' },
-    { id: 'hero6', src: 'assets/images/hero/hero6.jpg', alt: 'Illustration 6' },
-    { id: 'hero7', src: 'assets/images/hero/hero7.jpg', alt: 'Illustration 7' },
-    { id: 'hero8', src: 'assets/images/hero/hero8.jpg', alt: 'Illustration 8' },
-  ],
-
-  motionProjects: [
-    {
-      id:          'food-of-the-philippines',
-      title:       'Food of The Philippines',
-      tagline:     'Enter tagline here! :3',
-      thumbnail:   'assets/images/motion/food-of-philippines.jpg',
-      description: 'A personal project showcasing the different food found in various parts of the Philippines, my home country! Made with Adobe After Effects.',
-      video:       'https://www.youtube.com/watch?v=yNa8jP4zoJo',
-    },
-    {
-      id:          'cup-noodle-ad',
-      title:       'Cup Noodles Advetisement',
-      tagline:     'Enter tagline here! :3',
-      thumbnail:   'assets/images/motion/cup-noodle-ad.jpg',
-      description: 'A seamlessly looping animated piece drawing from Eastern European folk art motifs, exploring the rhythm and repetition found in traditional textile patterns.',
-      video:       'https://www.youtube.com/watch?v=PEJ2vWtrJ-E',
-    },
-    // Add more motion projects here
+    { id: 'pepsi-cola', src: 'assets/images/illustration/ATL_202520_ILLU100_MayadeAlba_A3_PepsiCola.jpg', alt: 'Pepsi Cola illustration' },
+    { id: 'pokemon', src: 'assets/images/illustration/ATL_202520_ILLU100_MayadeAlba_A4_Pokemon.jpg', alt: 'Pokémon-inspired illustration' },
+    { id: 'slavic-fairytales', src: 'assets/images/illustration/ATL_202530_ILLU218_MayadeAlba_A1_slavicfairytalesCL.jpg', alt: 'Slavic fairy tales illustration' },
+    { id: 'album-cover', src: 'assets/images/illustration/ATL_202530_ILLU218_MayadeAlba_A4_AlbumCoverwithtext.jpg', alt: 'Album cover illustration' },
+    { id: 'genre-swap', src: 'assets/images/illustration/ATL_202530_ILLU225_MayadeAlba_A2_GenreSwap.jpg', alt: 'Genre swap illustration' },
+    { id: 'fortune-teller', src: 'assets/images/illustration/ATL_202610_ILLU309_MayadeAlba_A1_AFortuneTeller.jpg', alt: 'A Fortune Teller illustration' },
+    { id: 'draw-a-crowd', src: 'assets/images/illustration/ATL_202710_ILLU318_MayadeAlba_A2_DrawACrowd_Poster.png', alt: 'Draw a Crowd poster illustration' },
+    { id: 'the-tower', src: 'assets/images/illustration/TheTower.jpg', alt: 'The Tower illustration' },
+    { id: 'witch', src: 'assets/images/illustration/Witch.jpg', alt: 'Witch illustration' },
+    { id: 'girl-paint', src: 'assets/images/illustration/GirlPaint.jpg', alt: 'Girl painting illustration' },
+    { id: 'holiday-market-poster', src: 'assets/images/illustration/HolidayMarketPoster_MayadeAlba_Invitation.jpg', alt: 'Holiday Market Poster invitation illustration' },
+    { id: 'illustration-1', src: 'assets/images/illustration/1.jpg', alt: 'Illustration' },
   ],
 
   surfaceProjects: [
