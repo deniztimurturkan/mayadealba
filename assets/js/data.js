@@ -45,7 +45,7 @@ const siteData = {
       id:          'serene-swans',
       title:       'Serene Swans',
       tagline:     'Paired swans and folk ornament in jewel tones',
-      thumbnail:   'assets/images/surface-design/serene-swans/pattern-1.jpg',
+      thumbnail:   'assets/images/covers/SereneSwans-Cover.png',
       description: 'A repeat pattern collection built around paired swans, trailing vines, and folk ornament, designed for rugs, wallpaper, and home textiles.',
       images: [
         'assets/images/surface-design/serene-swans/pattern-6.jpg',
@@ -70,7 +70,7 @@ const siteData = {
       id:          'drawchange',
       title:       'DrawChange',
       tagline:     'A voice in the motif',
-      thumbnail:   'assets/images/surface-design/drawchange/pattern-1.jpg',
+      thumbnail:   'assets/images/covers/DrawChange-Cover.png',
       description: 'A pattern collection about making your voice heard, applied across apparel, stationery, and accessories.',
       images: [
         'assets/images/surface-design/drawchange/pattern-7.jpg',
@@ -102,7 +102,7 @@ const siteData = {
       id:          'rain-flowers',
       title:       'Rain Flowers',
       tagline:     'Blooms for a rainy day',
-      thumbnail:   'assets/images/surface-design/rain-flowers/pattern-1.jpg',
+      thumbnail:   'assets/images/covers/RainFlowers-Cover.png',
       description: 'A rainy-day floral collection designed for umbrellas, raincoats, and rain boots.',
       images: [
         'assets/images/surface-design/rain-flowers/pattern-7.jpg',
@@ -128,7 +128,7 @@ const siteData = {
       id:          'dinosaurs-in-space',
       title:       'Dinosaurs in Space',
       tagline:     'cool dinosaurs :3',
-      thumbnail:   'assets/images/surface-design/dinosaurs-in-space/pattern-1.jpg',
+      thumbnail:   'assets/images/covers/DinosaurInSpace-Cover.png',
       description: 'A self-directed pattern project designed for children`s apparel, wrapping paper, greeting cards, and school materials.',
       images: [
         'assets/images/surface-design/dinosaurs-in-space/pattern-7.jpg',
@@ -149,7 +149,7 @@ const siteData = {
       id:          'medieval-fairytale',
       title:       'Medieval Fairytale',
       tagline:     'Medieval history, art, and culture with a mix of fantasy',
-      thumbnail:   'assets/images/surface-design/medieval-fairytale/pattern-1.jpg',
+      thumbnail:   'assets/images/covers/MedievalFairytail-Cover.png',
       description: 'A personal pattern project based on my favorite things: Medieval history, art, and culture with a mix of fantasy!',
       images: [
         'assets/images/surface-design/medieval-fairytale/pattern-1.jpg',
@@ -177,7 +177,7 @@ const siteData = {
       id:          'deep-sea-feelings',
       title:       'Deep Sea Feelings',
       tagline:     'Greeting cards from the deep',
-      thumbnail:   'assets/images/surface-design/deep-sea-feelings/pattern-1.jpg',
+      thumbnail:   'assets/images/covers/DeepSeaFeelings-Cover.png',
       description: 'A greeting card and stationery collection of whales, manta rays, and octopuses, paired with patterned envelope liners.',
       images: [
         'assets/images/surface-design/deep-sea-feelings/pattern-1.jpg',
@@ -203,7 +203,7 @@ const siteData = {
       id:          'prince-and-the-dragon',
       title:       'The Prince and The Dragon',
       tagline:     'A bedtime story in repeat',
-      thumbnail:   'assets/images/surface-design/prince-and-the-dragon/pattern-1.jpg',
+      thumbnail:   'assets/images/covers/ThePrinceAndTheDragon-Cover.png',
       description: 'A bedtime-story collection of knights, castles, and dragons, designed for children`s bedding and room decor.',
       images: [
         'assets/images/surface-design/prince-and-the-dragon/pattern-1.jpg',
@@ -220,7 +220,7 @@ const siteData = {
       id:          'place-id-rather-be',
       title:       "A Place I'd Rather Be",
       tagline:     'Somewhere else entirely',
-      thumbnail:   'assets/images/surface-design/place-id-rather-be/pattern-1.jpg',
+      thumbnail:   'assets/images/covers/PlaceIdRatherBe-Cover.png',
       description: 'A pattern collection built around daydreaming about the places you would rather be.',
       images: [
         'assets/images/surface-design/place-id-rather-be/pattern-2.jpg',
@@ -239,7 +239,7 @@ const siteData = {
       id:          'the-circus',
       title:       'The Circus',
       tagline:     'Under the big top',
-      thumbnail:   'assets/images/surface-design/the-circus/pattern-1.jpg',
+      thumbnail:   'assets/images/covers/TheCircus-Cover.png',
       description: 'A children`s collection of big tops, balloons, and circus animals, designed for wallpaper and nursery goods.',
       images: [
         'assets/images/surface-design/the-circus/pattern-14.jpg',
@@ -270,7 +270,7 @@ const siteData = {
       id:          'filipino-christmas',
       title:       'A Filipino Christmas',
       tagline:     'Maligayang pasko: a Filipino Christmas',
-      thumbnail:   'assets/images/surface-design/filipino-christmas/pattern-1.jpg',
+      thumbnail:   'assets/images/covers/FAFilipinoChristmas-Cover.png',
       description: 'A Christmas collection inspired by cultural aspects of the traditional Filipino Christmas.',
       images: [
         'assets/images/surface-design/filipino-christmas/pattern-7.jpg',
@@ -295,7 +295,7 @@ const siteData = {
       id:          'chef-cupid',
       title:       'Chef Cupid',
       tagline:     'A recipe for my love',
-      thumbnail:   'assets/images/surface-design/chef-cupid/pattern-1.jpg',
+      thumbnail:   'assets/images/covers/ChefCupid-Cover.png',
       description: 'A Valentine`s collection of bows, hearts, and kitchen romance, designed for greeting cards and textiles.',
       images: [
         'assets/images/surface-design/chef-cupid/pattern-1.jpg',
@@ -311,7 +311,7 @@ const siteData = {
       id:          'all-hallows-eve',
       title:       "All Hallow's Eve",
       tagline:     'Set the party',
-      thumbnail:   'assets/images/surface-design/all-hallows-eve/pattern-1.jpg',
+      thumbnail:   'assets/images/covers/HallowsEve-Cover.png',
       description: 'A Halloween party collection of eyes, spiders, and skulls, designed for plates, cups, and napkins.',
       images: [
         'assets/images/surface-design/all-hallows-eve/pattern-4.jpg',
