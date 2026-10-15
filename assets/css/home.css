@@ -9,7 +9,7 @@
   background-size: cover;
   background-position: center;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   min-height: clamp(420px, 60vh, 640px);
   padding: var(--space-3xl) var(--gutter);
 }
@@ -17,21 +17,21 @@
 .home-hero-inner {
   max-width: var(--max-width);
   width: 100%;
-  margin-inline: auto;
+  margin-inline: 0;
 }
 
 .home-hero-heading {
-  font-family: var(--font-display);
+  font-family: var(--font-accent);
   font-size: clamp(2.75rem, 6vw, 4.5rem);
-  font-weight: 700;
+  font-weight: 600;
   color: #fff;
   line-height: 1.1;
   max-width: 18ch;
 }
 
 .home-hero-description {
-  font-family: var(--font-display);
-  font-weight: 700;
+  font-family: var(--font-accent);
+  font-weight: 600;
   margin-top: var(--space-lg);
   font-size: 1.0625rem;
   line-height: 1.75;
