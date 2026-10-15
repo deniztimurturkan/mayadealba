@@ -18,6 +18,7 @@
   max-width: var(--max-width);
   width: 100%;
   margin-inline: 0;
+  margin-left: clamp(1rem, 4vw, 3rem);
 }
 
 .home-hero-heading {
