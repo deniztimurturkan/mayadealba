@@ -1,9 +1,4 @@
-/* ── Page base: white content, dark header ── */
-body {
-  background: #ffffff;
-  color: #111111;
-}
-
+/* ── Page base: black, matching home/about ── */
 .logo-wrap,
 .site-header {
   background: var(--color-bg);
@@ -19,12 +14,12 @@ body {
 
 .surface-title {
   font-size: clamp(2.5rem, 6vw, 4rem);
-  color: #111;
+  color: var(--color-text);
   margin-bottom: var(--space-sm);
 }
 
 .surface-subtitle {
-  color: #666;
+  color: var(--color-text-muted);
   font-size: 0.9375rem;
   max-width: none;
 }
