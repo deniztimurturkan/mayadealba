@@ -179,3 +179,19 @@ body {
 .lightbox-nav:hover   { background: rgba(255, 255, 255, 0.2); }
 .lightbox-nav--prev   { left: 1.25rem; }
 .lightbox-nav--next   { right: 1.25rem; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   FOOTER — black, matching home/about
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.site-footer {
+  background: var(--color-bg);
+  color: #fff;
+}
+
+.site-footer p {
+  color: #fff;
+}
+
+.site-footer .footer-nav a {
+  color: #fff;
+}
