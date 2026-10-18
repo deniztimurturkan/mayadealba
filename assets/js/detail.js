@@ -69,6 +69,108 @@
     });
   }
 
+  /* ── Large masonry gallery (two columns, each image goes in the shorter one) ── */
+  const masonryEl = document.getElementById('detailMasonry');
+  if (masonryEl && project.gallery && project.gallery.length) {
+    masonryEl.hidden = false;
+    const colCount = project.galleryColumns || 2;
+    const cols = Array.from({ length: colCount }, () => {
+      const col = document.createElement('div');
+      col.className = 'masonry-col';
+      masonryEl.appendChild(col);
+      return col;
+    });
+    const heights = new Array(colCount).fill(0);
+    project.gallery.forEach((item, i) => {
+      const c = heights.indexOf(Math.min(...heights));
+      heights[c] += item.h / item.w;
+      const img = makeRevealImg(item.src, project.title);
+      img.width  = item.w;
+      img.height = item.h;
+      img.addEventListener('click', () => openLightbox(i));
+      cols[c].appendChild(img);
+    });
+  }
+
+  /* ── Strips: justified rows under their own heading ── */
+  const stripsEl = document.getElementById('detailStrips');
+  const STRIP_ROW_HEIGHT = 308;
+  if (stripsEl && project.strips && project.strips.length) {
+    stripsEl.hidden = false;
+    document.getElementById('stripsTitle').textContent = project.stripsTitle || '';
+    const rowsEl = document.getElementById('stripsRows');
+    const offset = (project.gallery || []).length;
+    project.strips.forEach((item, j) => {
+      const ratio = item.w / item.h;
+      const cell = document.createElement('div');
+      cell.className = 'strip-item';
+      cell.style.flex = ratio + ' ' + ratio + ' ' + (ratio * STRIP_ROW_HEIGHT) + 'px';
+      cell.style.maxWidth = (ratio * STRIP_ROW_HEIGHT * 1.6) + 'px';  // keeps a lone last-row image from stretching full width
+      const img = makeRevealImg(item.src, project.title);
+      img.width  = item.w;
+      img.height = item.h;
+      img.addEventListener('click', () => openLightbox(offset + j));
+      cell.appendChild(img);
+      rowsEl.appendChild(cell);
+    });
+  }
+
+  /* ── Lightbox ── */
+  const lbList = (project.gallery || []).concat(project.strips || []);
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  let lbIndex = 0;
+  function showLightbox(i) {
+    const list = lbList;
+    lbIndex = (i + list.length) % list.length;
+    lbImg.src = list[lbIndex].src;
+  }
+  function openLightbox(i) {
+    showLightbox(i);
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lb.hidden = true;
+    document.body.style.overflow = '';
+  }
+  if (lb && lbList.length) {
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxPrev').addEventListener('click', e => { e.stopPropagation(); showLightbox(lbIndex - 1); });
+    document.getElementById('lightboxNext').addEventListener('click', e => { e.stopPropagation(); showLightbox(lbIndex + 1); });
+    lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape')     closeLightbox();
+      if (e.key === 'ArrowLeft')  showLightbox(lbIndex - 1);
+      if (e.key === 'ArrowRight') showLightbox(lbIndex + 1);
+    });
+  }
+
+  /* ── Process & Pitch ── */
+  const pitchEl = document.getElementById('detailPitch');
+  if (pitchEl && project.processParagraphs && project.processParagraphs.length) {
+    pitchEl.hidden = false;
+    if (project.processTitle) document.getElementById('pitchTitle').textContent = project.processTitle;
+    const textEl = document.getElementById('pitchText');
+    project.processParagraphs.forEach(t => {
+      const p = document.createElement('p');
+      p.textContent = t;
+      textEl.appendChild(p);
+    });
+    if (project.pitchUrl) {
+      const link = document.getElementById('pitchLink');
+      link.href = project.pitchUrl;
+      link.hidden = false;
+      if (project.pitchImage) {
+        const imgLink = document.getElementById('pitchImageLink');
+        imgLink.href = project.pitchUrl;
+        imgLink.hidden = false;
+        imgLink.appendChild(makeRevealImg(project.pitchImage, 'Pitch deck — ' + project.title));
+      }
+    }
+  }
+
   /* ── Scroll reveal via IntersectionObserver ── */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -80,6 +182,6 @@
   }, { threshold: 0.12 });
 
   document.querySelectorAll(
-    '.detail-gallery img, .process-images img, .mockup-images img'
+    '.detail-gallery img, .process-images img, .mockup-images img, .masonry-col img, .pitch-image img, .strip-item img'
   ).forEach(img => observer.observe(img));
 })();
