@@ -50,6 +50,26 @@
       <!-- Injected by detail.js -->
     </section>
 
+    <!-- Large masonry gallery (projects with a gallery list) -->
+    <section class="detail-masonry" id="detailMasonry" aria-label="Project images" hidden></section>
+
+    <!-- Process & Pitch (projects with processParagraphs) -->
+    <section class="detail-pitch" id="detailPitch" hidden>
+      <hr class="pitch-rule">
+      <div class="pitch-inner">
+        <h2 class="pitch-title" id="pitchTitle">Process &amp; Pitch</h2>
+        <div class="pitch-text" id="pitchText"></div>
+        <a class="pitch-link" id="pitchLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Click here to view the full pitch!</a>
+        <a class="pitch-image" id="pitchImageLink" href="#" target="_blank" rel="noopener noreferrer" hidden></a>
+      </div>
+    </section>
+
+    <!-- Justified-row gallery with its own heading (projects with a strips list) -->
+    <section class="detail-strips" id="detailStrips" hidden>
+      <h2 class="strips-title" id="stripsTitle"></h2>
+      <div class="strips-rows" id="stripsRows"></div>
+    </section>
+
     <!-- Process Section -->
     <section class="detail-process" id="detailProcess" hidden>
       <div class="container">
@@ -76,7 +96,7 @@
 
   </main>
 
-  <footer class="site-footer site-footer--light">
+  <footer class="site-footer">
     <p>&copy; 2026 Maya Angela de Alba</p>
     <nav class="footer-nav" aria-label="Footer navigation">
       <a href="mailto:maya@example.com">Email</a>
@@ -84,6 +104,13 @@
       <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </nav>
   </footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#8249;</button>
+    <img class="lightbox-img" id="lightboxImg" alt="">
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">&#8250;</button>
+  </div>
 
   <script src="assets/js/data.js"></script>
   <script src="assets/js/nav.js"></script>
