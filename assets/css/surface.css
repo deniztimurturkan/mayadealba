@@ -1,6 +1,20 @@
-/* ── Page base: black, matching home/about ── */
-.logo-wrap,
-.site-header {
+/* ── Page base: white — remap the dark theme tokens for this page only ── */
+.surface-page {
+  --color-bg:         #ffffff;
+  --color-surface:    #f4f2ee;
+  --color-text:       #111111;
+  --color-text-muted: #6b6762;
+  --color-border:     rgba(0, 0, 0, 0.08);
+}
+
+/* Header and footer stay black: restore the original dark tokens inside it */
+.surface-page .logo-wrap,
+.surface-page .site-header,
+.surface-page .site-footer {
+  --color-bg:         #090909;
+  --color-text:       #f0ede8;
+  --color-text-muted: #7a7570;
+  --color-border:     rgba(255, 255, 255, 0.08);
   background: var(--color-bg);
 }
 
@@ -30,7 +44,7 @@
 .surface-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xl);
+  gap: var(--space-3xl);
   padding-bottom: var(--space-3xl);
 }
 
@@ -78,6 +92,8 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  /* covers have transparent margins; zoom so the artwork fills the card (slight bleed) */
+  transform: scale(1.26);
 }
 
 .card-front--placeholder {
@@ -102,7 +118,7 @@
   padding: var(--space-xl);
   text-align: center;
   gap: var(--space-md);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--color-border);
 }
 
 .card-back-title {
@@ -140,16 +156,16 @@
   grid-column: 1 / -1;
   text-align: center;
   padding: var(--space-3xl) 0;
-  color: #777;
+  color: var(--color-text-muted);
 }
 
 /* ── Responsive ── */
 @media (max-width: 1023px) {
-  .surface-grid { grid-template-columns: repeat(2, 1fr); }
+  .surface-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-2xl); }
 }
 
 @media (max-width: 639px) {
-  .surface-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+  .surface-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
 
   /* Disable hover flip on touch; show back on tap instead */
   .card-wrapper:hover .card { transform: none; }
