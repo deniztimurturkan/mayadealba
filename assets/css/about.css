@@ -12,6 +12,11 @@ body {
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    ABOUT SECTION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.about-section,
+.contact-section {
+  font-family: var(--font-accent);
+}
+
 .about-section {
   padding: var(--space-3xl) var(--gutter);
   max-width: var(--max-width);
@@ -20,9 +25,9 @@ body {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 2fr 3fr;
-  gap: clamp(2rem, 5vw, 7rem);
-  align-items: start;
+  grid-template-columns: 5fr 9fr;
+  gap: clamp(2rem, 4vw, 5rem);
+  align-items: center;
 }
 
 /* Photo — arch shape (rounded top, straight bottom) */
@@ -42,11 +47,11 @@ body {
 }
 
 .about-heading {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  font-weight: 700;
+  font-family: var(--font-accent);
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-weight: 600;
   color: #111;
-  line-height: 1;
+  line-height: 1.1;
   margin-bottom: var(--space-lg);
 }
 
@@ -63,10 +68,11 @@ body {
 }
 
 .about-body p {
-  font-size: 1.0625rem;
-  line-height: 1.8;
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.75;
   color: #333;
-  max-width: 54ch;
+  max-width: none;
 }
 
 .about-body strong {
@@ -83,8 +89,8 @@ body {
 }
 
 .link-accent {
-  font-size: 1.0625rem;
-  font-weight: 700;
+  font-size: 1.3rem;
+  font-weight: 600;
   color: var(--color-accent);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -117,11 +123,11 @@ body {
 }
 
 .contact-heading {
-  font-family: var(--font-body);
-  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
-  font-weight: 800;
+  font-family: var(--font-accent);
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-weight: 600;
   color: #111;
-  line-height: 1;
+  line-height: 1.1;
   white-space: nowrap;
   margin-bottom: var(--space-lg);
 }
@@ -133,7 +139,7 @@ body {
 }
 
 .contact-item {
-  font-size: 1.0625rem;
+  font-size: 1.3rem;
   line-height: 1;
   color: #111;
   margin-bottom: var(--space-lg);
@@ -154,41 +160,6 @@ body {
   height: auto;
   display: block;
 }
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   FOOTER — large bold layout
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.about-footer {
-  background: var(--color-bg);
-  color: #fff;
-  border-top: none;
-  padding: var(--space-3xl) var(--gutter);
-  gap: var(--space-lg);
-}
-
-.footer-copyright {
-  font-family: var(--font-body);
-  font-size: clamp(1.75rem, 4.5vw, 3.5rem);
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: #fff;
-  max-width: none;
-}
-
-.about-footer .footer-nav a {
-  color: #fff;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.about-footer .footer-nav a:hover { color: var(--color-accent); }
-
-.about-footer .footer-nav span { color: #777; }
 
 /* ── Responsive ── */
 @media (max-width: 767px) {

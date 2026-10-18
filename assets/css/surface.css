@@ -155,19 +155,3 @@
   .card-wrapper:hover .card { transform: none; }
   .card-wrapper.tapped .card { transform: rotateY(180deg); }
 }
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   FOOTER — black, matching home/about
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.site-footer {
-  background: var(--color-bg);
-  color: #fff;
-}
-
-.site-footer p {
-  color: #fff;
-}
-
-.site-footer .footer-nav a {
-  color: #fff;
-}

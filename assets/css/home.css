@@ -4,21 +4,21 @@
 .home-hero {
   background-color: var(--color-bg);
   background-image:
-    linear-gradient(to right, rgba(9, 9, 9, 0.65) 0%, rgba(9, 9, 9, 0.65) 45%, rgba(9, 9, 9, 0.2) 100%),
+    linear-gradient(rgba(9, 9, 9, 0.725), rgba(9, 9, 9, 0.725)),
     url('../images/pattern-bg.png');
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: flex-end;
   min-height: clamp(420px, 60vh, 640px);
-  padding: var(--space-3xl) var(--gutter);
+  padding: var(--space-3xl) var(--gutter) calc(var(--space-3xl) + 3rem);
 }
 
 .home-hero-inner {
   max-width: var(--max-width);
   width: 100%;
   margin-inline: 0;
-  margin-left: clamp(1rem, 4vw, 3rem);
+  margin-left: clamp(2rem, 10vw, 9rem);
 }
 
 .home-hero-heading {
@@ -27,17 +27,17 @@
   font-weight: 600;
   color: #fff;
   line-height: 1.1;
-  max-width: 18ch;
+  max-width: 22ch;
 }
 
 .home-hero-description {
   font-family: var(--font-accent);
-  font-weight: 600;
+  font-weight: 400;
   margin-top: var(--space-lg);
-  font-size: 1.0625rem;
+  font-size: 1.3rem;
   line-height: 1.75;
   color: var(--color-text);
-  max-width: 50ch;
+  max-width: 46rem;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -50,7 +50,7 @@
 }
 
 .approach-inner {
-  max-width: 760px;
+  max-width: 1040px;
   margin-inline: auto;
   display: flex;
   flex-direction: column;
@@ -59,15 +59,16 @@
 }
 
 .approach-heading {
-  font-family: var(--font-display);
+  font-family: var(--font-accent);
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
   color: #111;
 }
 
 .approach-description {
-  font-size: 1.125rem;
-  line-height: 1.8;
+  font-family: var(--font-accent);
+  font-size: clamp(1.25rem, 1.9vw, 1.625rem);
+  line-height: 1.7;
   color: #333;
 }
 
@@ -76,7 +77,7 @@
   align-items: center;
   justify-content: center;
   padding: 1rem 3rem;
-  font-family: var(--font-body);
+  font-family: var(--font-accent);
   font-size: 0.9375rem;
   font-weight: 600;
   background: #111;
@@ -125,16 +126,17 @@
 }
 
 .reach-heading {
-  font-family: var(--font-display);
+  font-family: var(--font-accent);
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
   color: #fff;
 }
 
 .reach-description {
+  font-family: var(--font-accent);
   font-size: 1.125rem;
   line-height: 1.7;
-  color: var(--color-text-muted);
+  color: #bdbdbd
 }
 
 .btn-light {
@@ -142,7 +144,7 @@
   align-items: center;
   justify-content: center;
   padding: 1rem 3rem;
-  font-family: var(--font-body);
+  font-family: var(--font-accent);
   font-size: 0.9375rem;
   font-weight: 600;
   background: #fff;
@@ -152,33 +154,6 @@
 }
 
 .btn-light:hover { background: #eaeaea; }
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   FOOTER — black, matching about page
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.home-footer {
-  background: var(--color-bg);
-}
-
-.home-footer p {
-  font-family: var(--font-display);
-  font-size: clamp(1.125rem, 2vw, 1.5rem);
-  font-weight: 700;
-  letter-spacing: normal;
-  text-transform: none;
-  color: #fff;
-  max-width: none;
-}
-
-.home-footer .footer-nav a {
-  color: #fff;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.home-footer .footer-nav a:hover { color: var(--color-accent); }
-
-.home-footer .footer-nav span { color: #777; }
 
 /* ── Responsive ── */
 @media (max-width: 767px) {
