@@ -1,3 +1,13 @@
 # Raw source art (full-resolution exports, PSDs, process book PDFs).
 # Web-ready versions live in assets/images/surface-design/.
 assets/images/Surface Design/
+
+# Personal / local files that should never be published
+.DS_Store
+.env*
+*.heic
+*.HEIC
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+PORTFOLIO_MINDMAP.md
